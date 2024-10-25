@@ -1,4 +1,4 @@
-package payroll;
+package com.manticore.payroll.model;
 
 import java.util.Objects;
 
@@ -8,16 +8,17 @@ import jakarta.persistence.Id;
 
 
 @Entity
-class Employee {
+public class Employee {
 
   private @Id
   @GeneratedValue Long id;
   private String name;
   private String role;
 
-  Employee() {}
+  public Employee() {
+  }
 
-  Employee(String name, String role) {
+  public Employee(String name, String role) {
 
     this.name = name;
     this.role = role;
@@ -56,7 +57,7 @@ class Employee {
       return false;
     Employee employee = (Employee) o;
     return Objects.equals(this.id, employee.id) && Objects.equals(this.name, employee.name)
-        && Objects.equals(this.role, employee.role);
+            && Objects.equals(this.role, employee.role);
   }
 
   @Override
@@ -69,3 +70,4 @@ class Employee {
     return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + '}';
   }
 }
+
